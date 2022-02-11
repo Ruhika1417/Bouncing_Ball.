@@ -21,25 +21,29 @@ func main() {
 	}
 
 	//drawing the board
-	//slice
+	//buf is a rune slice
+	buf := make([]rune, 0, width*height) //single dimensional buffer
 	board[0][0] = true
 	board[1][1] = true
 	board[2][2] = true
 	board[3][3] = true
 
+	buf = buf[:0]
 	for y := range board[0] { //y   similar to for y:=0;y<height;y++  //column
 		for x := range board { //x  for x:=0;x<height;x++  //row
 			cell = cellEmppty
 			if board[x][y] {
 				cell = cellBall
 				//fmt.Print(" ")
-
 			}
-			fmt.Print(string(cell), " ")
+			buf = append(buf, cell, ' ')
+			//fmt.Print(string(cell), " ")
 			//fmt.Print(" ")
 		}
-		fmt.Println()
 
+		//fmt.Println()
+		buf = append(buf, '\n')
 	}
 
+	fmt.Println(string(buf))
 }
