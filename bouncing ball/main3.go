@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 	"time"
+	screen "github.com/aditya43/clear-shell-screen-golang"
+
 )
 
 func main() {
@@ -29,7 +31,7 @@ func main() {
 		board[row] = make([]bool, height)
 
 	}
-	//clear screen
+	screen.clear()
 
 	for i := 0; i < maxFrame; i++ {
 
